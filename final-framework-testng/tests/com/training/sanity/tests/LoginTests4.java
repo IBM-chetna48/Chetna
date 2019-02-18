@@ -1,4 +1,7 @@
-//To verify whether application allows user to change the password in Change Your Password page
+/*
+ * To verify whether application allows the user to add product details into cart
+ */
+
 package com.training.sanity.tests;
 
 import java.io.FileInputStream;
@@ -14,15 +17,18 @@ import org.testng.annotations.Test;
 import com.training.generics.ScreenShot;
 //import com.training.pom.LoginPOM; //old
 import com.training.pom.LoginPOM2;
+import com.training.pom.LoginPOM3;
+import com.training.pom.LoginPOM4;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class LoginTests {
-	
+public class LoginTests4 {
+
 	private WebDriver driver;
 	private String baseUrl;
-//	private LoginPOM loginPOM;
-	private LoginPOM2 loginPOM2;
+	// private LoginPOM loginPOM;
+	// private LoginPOM3 loginPOM3;
+	private LoginPOM4 loginPOM4;
 	private static Properties properties;
 	private ScreenShot screenShot;
 
@@ -36,28 +42,31 @@ public class LoginTests {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-	//	loginPOM = new LoginPOM(driver); 
-		loginPOM2 = new LoginPOM2(driver); 
+		// loginPOM = new LoginPOM(driver);
+		loginPOM4 = new LoginPOM4(driver);
 		baseUrl = properties.getProperty("baseURL");
-		screenShot = new ScreenShot(driver); 
-		// open the browser 
+		screenShot = new ScreenShot(driver);
+		// open the browser
 		driver.get(baseUrl);
 	}
-	
+
 	@AfterMethod
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
 		driver.quit();
+
 	}
+
 	@Test
-	public void validLoginTest() {
-	//	loginPOM2.sendUserName("admin");
-//		loginPOM2.sendPassword("admin@123");
-		loginPOM2.clickLoginMenu(); 
-		loginPOM2.clickForgotPwd();
-		loginPOM2.enterEmail("chetna4889@gmail.com");
-		loginPOM2.submit();
-		loginPOM2.success();
-		screenShot.captureScreenShot("First");
+	public void validLoginTest() throws InterruptedException {
+		// loginPOM2.sendUserName("admin");
+		// loginPOM2.sendPassword("admin@123");
+		loginPOM4.clickLoginMenu();
+		loginPOM4.clickethnic();
+		loginPOM4.clickItem();
+		loginPOM4.windowHandle();
+		loginPOM4.success();
+		screenShot.captureScreenShot("Fourth");
+
 	}
 }
