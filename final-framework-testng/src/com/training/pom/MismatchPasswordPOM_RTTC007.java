@@ -8,10 +8,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class LoginPOM_RTTC007 {
+public class MismatchPasswordPOM_RTTC007 {
 	private WebDriver driver;
 
-	public LoginPOM_RTTC007(WebDriver driver) {
+	public MismatchPasswordPOM_RTTC007(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -43,7 +43,8 @@ public class LoginPOM_RTTC007 {
 	@FindBy(xpath = "//*[@id=\"System_gqgg2zel\"]/form/div/div[2]/input")
 	private WebElement final_Submit;
 
-	@FindBy(xpath = "//*[@id=\"System_gqgg2zel\"]/form/fieldset/div[2]/div/div")
+	@FindBy(xpath = "//div[@class='text-danger']")
+	////*[@id=\"System_gqgg2zel\"]/form/fieldset/div[2]/div/div
 	private WebElement errMsz;
 
 	// click on login menu
@@ -93,10 +94,15 @@ public class LoginPOM_RTTC007 {
 	}
 
 	// Wrong password message should be displayed
+	/*
 	public void success() {
 		boolean expected = true;
 		Assert.assertEquals(errMsz.isDisplayed(), expected);
 		System.out.println("Wrong Password entered: " + errMsz.getText());
 	}
-
+*/
+	
+	public String success() {
+		return this.errMsz.getText();
+}
 }

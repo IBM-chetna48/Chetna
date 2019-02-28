@@ -1,5 +1,7 @@
-/*Test Case 2: To verify whether application displays error message upon mis matching password 
-& confirm password of Change Your Password page */
+/*
+ * To verify whether application allows the user to add product details into cart
+ */
+
 package com.training.sanity.tests;
 
 import java.io.FileInputStream;
@@ -14,17 +16,19 @@ import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
 //import com.training.pom.LoginPOM; //old
-import com.training.pom.LoginPOM2;
-import com.training.pom.LoginPOM_RTTC007;
+import com.training.pom.PasswordChangePOM2;
+import com.training.pom.ProductSortByListPOM3_RTTC008;
+import com.training.pom.AddToCartPOM4_RTTC009;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class LoginTests_RTTC007 {
+public class AddToCartRTTC009_Tests4 {
 
 	private WebDriver driver;
 	private String baseUrl;
 	// private LoginPOM loginPOM;
-	private LoginPOM_RTTC007 RTTC007;
+	// private LoginPOM3 loginPOM3;
+	private AddToCartPOM4_RTTC009 loginPOM4;
 	private static Properties properties;
 	private ScreenShot screenShot;
 
@@ -39,32 +43,31 @@ public class LoginTests_RTTC007 {
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		// loginPOM = new LoginPOM(driver);
-		RTTC007 = new LoginPOM_RTTC007(driver);
+		loginPOM4 = new AddToCartPOM4_RTTC009(driver);
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver);
 		// open the browser
 		driver.get(baseUrl);
 	}
-
+/*
 	@AfterMethod
+	
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
 		driver.quit();
-	}
 
+	}
+*/
 	@Test
-	public void validLoginTest() {
+	public void validLoginTest() throws InterruptedException {
 		// loginPOM2.sendUserName("admin");
 		// loginPOM2.sendPassword("admin@123");
-		RTTC007.clickLoginMenu();
-		RTTC007.enterEmail("chetna4889@gmail.com");
-		RTTC007.enterPassword("chetna");
-		RTTC007.submit();
-		RTTC007.changeP();
-		RTTC007.enterActualP("chetna");
-		RTTC007.enterConfirmP("HELLO");
-		RTTC007.final_submit();
-		RTTC007.success();
-		screenShot.captureScreenShot("second");
+		loginPOM4.clickLoginMenu();
+		loginPOM4.clickethnic();
+		loginPOM4.clickItem();
+		loginPOM4.windowHandle();
+		loginPOM4.success();
+		screenShot.captureScreenShot("Fourth");
+
 	}
 }

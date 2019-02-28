@@ -1,7 +1,5 @@
-/*
- * To verify whether application allows the user to remove added product details from cart
- */
-
+/*Test Case 2: To verify whether application displays error message upon mis matching password 
+& confirm password of Change Your Password page */
 package com.training.sanity.tests;
 
 import java.io.FileInputStream;
@@ -9,6 +7,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -16,20 +15,17 @@ import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
 //import com.training.pom.LoginPOM; //old
-import com.training.pom.LoginPOM2;
-import com.training.pom.LoginPOM3;
-import com.training.pom.LoginPOM4;
-import com.training.pom.LoginPOM5;
+import com.training.pom.PasswordChangePOM2;
+import com.training.pom.MismatchPasswordPOM_RTTC007;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class LoginTests5 {
+public class MismatchPasswordTests_RTTC007 {
 
 	private WebDriver driver;
 	private String baseUrl;
 	// private LoginPOM loginPOM;
-	// private LoginPOM3 loginPOM3;
-	private LoginPOM5 loginPOM5;
+	private MismatchPasswordPOM_RTTC007 RTTC007;
 	private static Properties properties;
 	private ScreenShot screenShot;
 
@@ -44,7 +40,7 @@ public class LoginTests5 {
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		// loginPOM = new LoginPOM(driver);
-		loginPOM5 = new LoginPOM5(driver);
+		RTTC007 = new MismatchPasswordPOM_RTTC007(driver);
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver);
 		// open the browser
@@ -58,17 +54,23 @@ public class LoginTests5 {
 	}
 
 	@Test
-	public void validLoginTest() throws InterruptedException {
+	public void validLoginTest() {
 		// loginPOM2.sendUserName("admin");
 		// loginPOM2.sendPassword("admin@123");
-		loginPOM5.clickLoginMenu();
-		loginPOM5.clickethnic();
-
-		loginPOM5.clickItem();
-		loginPOM5.windowHandle();
-		loginPOM5.success();
-		screenShot.captureScreenShot("Fifth");
-
-		// loginPOM3.click_sotBy();
+		RTTC007.clickLoginMenu();
+		RTTC007.enterEmail("chetna4889@gmail.com");
+		RTTC007.enterPassword("chetna");
+		RTTC007.submit();
+		RTTC007.changeP();
+		RTTC007.enterActualP("chetna");
+		RTTC007.enterConfirmP("HELLO");
+		RTTC007.final_submit();
+		RTTC007.success();
+		String msz="Password ";
+		System.out.println(RTTC007.success());
+		Assert.assertTrue(RTTC007.success().contains(msz));
+		
+		
+		screenShot.captureScreenShot("second");
 	}
 }

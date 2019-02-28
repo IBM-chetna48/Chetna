@@ -7,10 +7,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class LoginPOM2 {
+public class PasswordChangePOM2 {
 	private WebDriver driver;
 
-	public LoginPOM2(WebDriver driver) {
+	public PasswordChangePOM2(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -30,7 +30,8 @@ public class LoginPOM2 {
 	@FindBy(xpath = "//*[@id=\"System_nyHsmShk\"]/form/div/div[2]/input")
 	private WebElement submit;
 
-	@FindBy(xpath = "//*[@id=\"System_nyHsmShk\"]/div[1]")
+	//@FindBy(xpath = "//*[@id=\"System_nyHsmShk\"]/div[1]")
+	@FindBy(xpath ="//div[@class='alert alert-success']")
 	private WebElement actual;
 
 	// click on login menu
@@ -54,10 +55,14 @@ public class LoginPOM2 {
 		this.submit.click();
 	}
 	// password is changed successfully
+	/*
 	public void success() {
 		boolean expected = true;
 		Assert.assertEquals(actual.isDisplayed(), expected);
 		System.out.println("success in changing pwd" + actual.getText());
 	}
-
+*/
+	public String success() {
+		return this.actual.getText();
+}
 }

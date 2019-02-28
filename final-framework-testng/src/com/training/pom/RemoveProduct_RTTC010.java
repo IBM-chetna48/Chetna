@@ -17,10 +17,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class LoginPOM5 {
+public class RemoveProduct_RTTC010 {
 	private WebDriver driver;
 
-	public LoginPOM5(WebDriver driver) {
+	public RemoveProduct_RTTC010(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -34,6 +34,9 @@ public class LoginPOM5 {
 	@FindBy(xpath = "//*[@id=\"ProductsSystem_QQI8r357\"]/div[1]/div[1]/div/div[3]/div/div/div[1]/h4/a")
 	// private WebElement sortBy;
 	private WebElement item;
+	
+	@FindBy(xpath ="//div[@class='tb_text_wrap tb_sep']")
+	WebElement actual;
 
 	public void clickLoginMenu() {
 		this.shopNow.click();
@@ -102,7 +105,10 @@ public class LoginPOM5 {
 
 		}
 	}
-
+	public String success() {
+		return this.actual.getText();
+	}
+/*
 	public void success() {
 		boolean expected = true;
 		WebElement actual;
@@ -110,5 +116,5 @@ public class LoginPOM5 {
 		Assert.assertEquals(actual.isDisplayed(), expected);
 		System.out.println("success msz displayed onscreen:" + actual.getText());
 	}
-
+*/
 }

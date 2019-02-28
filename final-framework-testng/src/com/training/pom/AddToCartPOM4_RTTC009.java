@@ -17,10 +17,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class LoginPOM4 {
+public class AddToCartPOM4_RTTC009 {
 	private WebDriver driver; 
 	
-	public LoginPOM4(WebDriver driver) {
+	public AddToCartPOM4_RTTC009(WebDriver driver) {
 		this.driver = driver; 
 		PageFactory.initElements(driver, this);
 	}

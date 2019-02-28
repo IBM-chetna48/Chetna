@@ -12,10 +12,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-public class LoginPOM3 {
+public class ProductSortByListPOM3_RTTC008 {
 	private WebDriver driver;
 
-	public LoginPOM3(WebDriver driver) {
+	public ProductSortByListPOM3_RTTC008(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
