@@ -18,7 +18,7 @@ import com.training.generics.ScreenShot;
 //import com.training.pom.LoginPOM; //old
 import com.training.pom.PasswordChangePOM2;
 import com.training.pom.ProductSortByListPOM3_RTTC008;
-import com.training.pom.AddToCartPOM4_RTTC009;
+import com.training.pom.ShoppingCartPOM4_RTTC009;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
@@ -28,7 +28,7 @@ public class AddToCartRTTC009_Tests4 {
 	private String baseUrl;
 	// private LoginPOM loginPOM;
 	// private LoginPOM3 loginPOM3;
-	private AddToCartPOM4_RTTC009 loginPOM4;
+	private ShoppingCartPOM4_RTTC009 loginPOM4;
 	private static Properties properties;
 	private ScreenShot screenShot;
 
@@ -43,7 +43,7 @@ public class AddToCartRTTC009_Tests4 {
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		// loginPOM = new LoginPOM(driver);
-		loginPOM4 = new AddToCartPOM4_RTTC009(driver);
+		loginPOM4 = new ShoppingCartPOM4_RTTC009(driver);
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver);
 		// open the browser

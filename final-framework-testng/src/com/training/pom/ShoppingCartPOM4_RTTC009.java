@@ -1,5 +1,5 @@
 /*
- * To verify whether application allows the user to add product details into cart
+ * Add product details into cart
  */
 
 package com.training.pom;
@@ -17,10 +17,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class AddToCartPOM4_RTTC009 {
+public class ShoppingCartPOM4_RTTC009 {
 	private WebDriver driver; 
 	
-	public AddToCartPOM4_RTTC009(WebDriver driver) {
+	public ShoppingCartPOM4_RTTC009(WebDriver driver) {
 		this.driver = driver; 
 		PageFactory.initElements(driver, this);
 	}

@@ -40,7 +40,7 @@ Session ID: c1f6ae04f4ea8ad116222e5d7451c4a1
 	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:402)
 	at org.openqa.selenium.By$ById.findElement(By.java:218)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:348)
-	at com.training.pom.AddToCartPOM4_RTTC009.windowHandle(LoginPOM4.java:79)
+	at com.training.pom.ShoppingCartPOM4_RTTC009.windowHandle(LoginPOM4.java:79)
 	at com.training.sanity.tests.AddToCartRTTC009_Tests4.validLoginTest(LoginTests4.java:68)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)

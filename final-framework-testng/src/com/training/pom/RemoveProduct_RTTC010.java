@@ -1,5 +1,5 @@
 /*
- * To verify whether application allows the user to remove added product details from cart
+ * remove added product details from cart
  */
 
 package com.training.pom;

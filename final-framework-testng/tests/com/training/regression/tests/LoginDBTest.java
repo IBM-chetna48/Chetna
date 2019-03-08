@@ -23,6 +23,7 @@ import com.training.utility.DriverNames;
 public class LoginDBTest {
 	private WebDriver driver;
 	private String baseUrl;
+	private String adminUrl;
 	private LoginPOM loginPOM;
 	private static Properties properties;
 	private ScreenShot screenShot;
@@ -40,11 +41,12 @@ public class LoginDBTest {
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginPOM = new LoginPOM(driver);
-		baseUrl = properties.getProperty("baseURL");
+		//baseUrl = properties.getProperty("baseURL");
+		adminUrl = properties.getProperty("adminURL");
 		screenShot = new ScreenShot(driver);
 		genericMethods = new GenericMethods(driver); 
 		// open the browser
-		driver.get(baseUrl);
+		driver.get(adminUrl);
 	}
 
 	@AfterMethod
@@ -58,7 +60,8 @@ public class LoginDBTest {
 	public void loginDBTest(String userName, String password) {
 		// for demonstration 
 //		genericMethods.getElement("login", "id"); 
-				
+		//String username = loginPOM.sendUserName("admin");	
+		//String password =loginPOM.sendUserName("password");
 		loginPOM.sendUserName(userName);
 		
 		loginPOM.sendPassword(password);

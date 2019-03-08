@@ -19,7 +19,7 @@ import com.training.generics.ScreenShot;
 //import com.training.pom.LoginPOM; //old
 import com.training.pom.PasswordChangePOM2;
 import com.training.pom.ProductSortByListPOM3_RTTC008;
-import com.training.pom.AddToCartPOM4_RTTC009;
+import com.training.pom.ShoppingCartPOM4_RTTC009;
 import com.training.pom.RemoveProduct_RTTC010;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;

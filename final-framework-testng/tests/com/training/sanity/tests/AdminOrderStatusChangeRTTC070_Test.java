@@ -1,4 +1,6 @@
-//To Verify whether application allows the user to return ordered product
+/*To verify whether application allows user to place an order with Pre Logging in 
+& admin change the status of order to complete
+*/
 package com.training.sanity.tests;
 
 import java.awt.AWTException;
@@ -6,6 +8,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -18,21 +22,27 @@ import com.training.generics.ScreenShot;
 import com.training.pom.PasswordChangePOM2;
 import com.training.pom.ProductSortByListPOM3_RTTC008;
 import com.training.pom.ShoppingCartPOM4_RTTC009;
+import com.training.pom.OrdersPOM;
+import com.training.pom.EditCategoryRTTC_039POM;
+import com.training.pom.LoginAdminRTTC_037POM;
 import com.training.pom.MismatchPasswordPOM_RTTC007;
 import com.training.pom.ReturnOrderRTTC_036POM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class ReturnOrderRTTC036_Test {
+public class AdminOrderStatusChangeRTTC070_Test {
 	
 	private WebDriver driver;
 	private String baseUrl;
-	
+	private String urlLink;
 	private ShoppingCartPOM4_RTTC009 loginPOM4;
+	private LoginAdminRTTC_037POM rttc037;
 	private MismatchPasswordPOM_RTTC007 loginPOM_rttc007;
+	private OrdersPOM rttc070;
 	private ReturnOrderRTTC_036POM rttc036;
 	private static Properties properties;
 	private ScreenShot screenShot;
+	private EditCategoryRTTC_039POM rttc039;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws IOException {
@@ -47,8 +57,12 @@ public class ReturnOrderRTTC036_Test {
 		
 		loginPOM4 = new ShoppingCartPOM4_RTTC009(driver); 
 		loginPOM_rttc007 = new MismatchPasswordPOM_RTTC007(driver);
+		rttc037 = new LoginAdminRTTC_037POM(driver);
 		rttc036 = new ReturnOrderRTTC_036POM(driver);
+		rttc039 = new EditCategoryRTTC_039POM(driver);
+		rttc070 = new OrdersPOM(driver);
 		baseUrl = properties.getProperty("baseURL");
+		urlLink = properties.getProperty("adminURL");
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
 		driver.get(baseUrl);
@@ -65,17 +79,6 @@ public class ReturnOrderRTTC036_Test {
 		//click login
 		loginPOM_rttc007.submit();
 		
-		//click login icon
-		loginPOM4.clickLoginMenu();
-		
-		//click ethnic from shop now
-		loginPOM4.clickethnic();
-		
-		//click the item to be purchased
-		loginPOM4.clickItem();
-		
-		//add the item to cart
-		loginPOM4.windowHandle();
 		
 	}
 	
@@ -89,7 +92,19 @@ public class ReturnOrderRTTC036_Test {
 	public void validLoginTest() throws InterruptedException, AWTException {
 	//	loginPOM2.sendUserName("admin");
 //		loginPOM2.sendPassword("admin@123");
+		//click login icon
 		
+		loginPOM4.clickLoginMenu();
+				
+		//click ethnic from shop now
+		loginPOM4.clickethnic();
+				
+		//click the item to be purchased
+		loginPOM4.clickItem();
+				
+		//add the item to cart
+		loginPOM4.windowHandle();
+				
 		//steps for ordering a product
 		//click on checkout option on cart window
 		rttc036.clickcheckout();
@@ -136,40 +151,61 @@ public class ReturnOrderRTTC036_Test {
 		rttc036.clickcontinue5(); 
 		// end of ordering product steps
 		
-		//Steps for returning product
+		//Steps for CHANGING THE STATUS of order
+		//open new tab
+		 
+		rttc070.newTab();
+		driver.get("http://retail.upskills.in/admin");
 		
-		//step 1 Click on User Icon
+		
+		rttc037.enterUsername("admin");
+		
+		//enter valid password
+		rttc037.enterPassword("admin@123");
+		
+		//click login
+		rttc037.submit();
+		
+		// Click on Sales Icon
+		rttc070.clickSales();
+		
+		// click on Orders link
+		rttc070.clickOrders();
+		
+		//Click on View icon beside the ordered product
+		rttc070.returnID();
+		rttc070.checkBox();
+		
+		//click on Order Status list box of Add Order History tab
+		rttc070.viewOrderClick();
+		
+		rttc039.scrollDown();
+		//rttc070.ipAddClick();
+		
+		//Select Valid credentials in Order Status list box
+		rttc070.selectSatus("Complete");
+		
+		//Click on Add History button
+		rttc070.addHistClick();
+		
+		//launch the user application in other tab of browser
+		rttc070.newTab2();
+		driver.get(baseUrl);
+		loginPOM_rttc007.clickLoginMenu(); 
+		
+		//Click on User Icon
 		rttc036.clickLogin(); 
-		
-		//step 2 Click on MY ORDERS link
+				
+		//Click on MY ORDERS link
 		rttc036.clickMyOrders();
-		
-		//step 3 Click on view icon
+				
+		//Click on view icon
 		rttc036.clickView(); 
-		//rttc036.scroll();
-		
-		//step 4 Click on Return icon
-		rttc036.clickreturn();
-		
-		//step 5 Click on valid Reason for Return radio button
-		rttc036.clickradio();
-		
-		//step 6 Click radio button of Product is opened category
-		rttc036.clickopen();
-		
-		//step 7 Enter reason for return in Faulty or other details textbox
-		rttc036.enterComment("product is faulty");
-		
-		//step 8  Click on Submit button
-		rttc036.clickSubmit();
-		
-		//check if successful message is generated
-		String msz="Thank you ";
-		System.out.println(rttc036.success());
-		Assert.assertTrue(rttc036.success().contains(msz));
-		screenShot.captureScreenShot("RTTC036_Return_Order");
+				
 		
 		
-		
+		System.out.println(rttc070.ordStatus());
+		Assert.assertEquals(false, (rttc070.ordStatus().isEmpty()));
+		screenShot.captureScreenShot("RTTC070_Order");
 	}
 }

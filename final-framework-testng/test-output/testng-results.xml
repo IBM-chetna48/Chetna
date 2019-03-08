@@ -2,28 +2,50 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="64709" started-at="2019-02-28T16:34:53Z" finished-at="2019-02-28T16:35:57Z">
+  <suite name="Default suite" duration-ms="19979" started-at="2019-03-08T08:18:16Z" finished-at="2019-03-08T08:18:36Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="64709" started-at="2019-02-28T16:34:53Z" finished-at="2019-02-28T16:35:57Z">
-      <class name="com.training.sanity.tests.RemoveProductRTTC010_Tests5">
-        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.RemoveProductRTTC010_Tests5@6767c1fc]" name="setUpBeforeClass" is-config="true" duration-ms="12" started-at="2019-02-28T22:04:53Z" finished-at="2019-02-28T22:04:53Z">
+    <test name="Default test" duration-ms="19979" started-at="2019-03-08T08:18:16Z" finished-at="2019-03-08T08:18:36Z">
+      <class name="com.training.regression.tests.StoreDetailDBTest2">
+        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.regression.tests.StoreDetailDBTest2@29ee9faa]" name="setUpBeforeClass" is-config="true" duration-ms="0" started-at="2019-03-08T13:48:16Z" finished-at="2019-03-08T13:48:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpBeforeClass -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.RemoveProductRTTC010_Tests5@6767c1fc]" name="setUp" is-config="true" duration-ms="15806" started-at="2019-02-28T22:04:53Z" finished-at="2019-02-28T22:05:08Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.regression.tests.StoreDetailDBTest2@29ee9faa]" name="setUp" is-config="true" duration-ms="7625" started-at="2019-03-08T13:48:16Z" finished-at="2019-03-08T13:48:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="validLoginTest()[pri:0, instance:com.training.sanity.tests.RemoveProductRTTC010_Tests5@6767c1fc]" name="validLoginTest" duration-ms="46756" started-at="2019-02-28T22:05:08Z" finished-at="2019-02-28T22:05:55Z">
+        <test-method status="PASS" signature="loginDBTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.training.regression.tests.StoreDetailDBTest2@29ee9faa]" name="loginDBTest" duration-ms="9781" started-at="2019-03-08T13:48:24Z" data-provider="db-inputs" finished-at="2019-03-08T13:48:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ORNAMENTS]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ornaments for ladies]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[ORNAMENTS]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[ornaments for ladies]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validLoginTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.RemoveProductRTTC010_Tests5@6767c1fc]" name="tearDown" is-config="true" duration-ms="2104" started-at="2019-02-28T22:05:55Z" finished-at="2019-02-28T22:05:57Z">
+        </test-method> <!-- loginDBTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.regression.tests.StoreDetailDBTest2@29ee9faa]" name="tearDown" is-config="true" duration-ms="2049" started-at="2019-03-08T13:48:34Z" finished-at="2019-03-08T13:48:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.training.sanity.tests.RemoveProductRTTC010_Tests5 -->
+      </class> <!-- com.training.regression.tests.StoreDetailDBTest2 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
